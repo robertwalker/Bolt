@@ -11,7 +11,7 @@ import IOKit.pwr_mgt
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2.0)
+    var statusItem = NSStatusBar.system().statusItem(withLength: -2.0)
     var keepingAwake = false
 
     var assertionID1 : IOPMAssertionID = IOPMAssertionID(0)
@@ -19,17 +19,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var success1: IOReturn?
     var success2: IOReturn?
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let siButton = statusItem.button {
             if let image = NSImage(named: "StatusItem") {
                 siButton.image = image
                 siButton.target = self
-                siButton.action = "handleClick"
+                siButton.action = #selector(AppDelegate.handleClick)
             }
         }
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
@@ -54,8 +54,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         else {
-            success1 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep, IOPMAssertionLevel(kIOPMAssertionLevelOn), reasonForActivity, &assertionID1)
-            success2 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep, IOPMAssertionLevel(kIOPMAssertionLevelOn), reasonForActivity, &assertionID2)
+            success1 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!, IOPMAssertionLevel(kIOPMAssertionLevelOn), reasonForActivity, &assertionID1)
+            success2 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!, IOPMAssertionLevel(kIOPMAssertionLevelOn), reasonForActivity, &assertionID2)
         }
         keepingAwake = !keepingAwake
     }
