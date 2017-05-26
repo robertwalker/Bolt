@@ -54,8 +54,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         else {
-            success1 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!, IOPMAssertionLevel(kIOPMAssertionLevelOn), reasonForActivity, &assertionID1)
-            success2 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!, IOPMAssertionLevel(kIOPMAssertionLevelOn), reasonForActivity, &assertionID2)
+            success1 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!,
+                                                   IOPMAssertionLevel(kIOPMAssertionLevelOn),
+                                                   reasonForActivity, &assertionID1)
+            success2 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!,
+                                                   IOPMAssertionLevel(kIOPMAssertionLevelOn),
+                                                   reasonForActivity, &assertionID2)
         }
         keepingAwake = !keepingAwake
     }
