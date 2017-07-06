@@ -7,17 +7,11 @@
 //
 
 import Cocoa
-import IOKit.pwr_mgt
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var statusItem = NSStatusBar.system().statusItem(withLength: -2.0)
-    var keepingAwake = false
-
-    var assertionID1 : IOPMAssertionID = IOPMAssertionID(0)
-    var assertionID2 : IOPMAssertionID = IOPMAssertionID(0)
-    var success1: IOReturn?
-    var success2: IOReturn?
+    let statusItem = NSStatusBar.system().statusItem(withLength: -2.0)
+    let sleepManager = SleepManager()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let siButton = statusItem.button {
@@ -34,33 +28,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handleClick() {
-        let imageName = (keepingAwake) ? "StatusItem" : "StatusItemAlternate"
+        let imageName = (sleepManager.sleepState == .preventSleep) ? "StatusItem" : "StatusItemAlternate"
         if let siButton = statusItem.button {
             if let image = NSImage(named: imageName) {
                 siButton.image = image
-                toggleKeepAwake();
+                sleepManager.togglePreventSleep()
             }
         }
-    }
-    
-    func toggleKeepAwake() {
-        let reasonForActivity = "Describe Activity Type" as CFString
-        if (keepingAwake) {
-            if success1 == kIOReturnSuccess {
-                IOPMAssertionRelease(assertionID1)
-            }
-            if success2 == kIOReturnSuccess {
-                IOPMAssertionRelease(assertionID2)
-            }
-        }
-        else {
-            success1 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!,
-                                                   IOPMAssertionLevel(kIOPMAssertionLevelOn),
-                                                   reasonForActivity, &assertionID1)
-            success2 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!,
-                                                   IOPMAssertionLevel(kIOPMAssertionLevelOn),
-                                                   reasonForActivity, &assertionID2)
-        }
-        keepingAwake = !keepingAwake
     }
 }
