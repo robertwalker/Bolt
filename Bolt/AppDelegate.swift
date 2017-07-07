@@ -7,60 +7,82 @@
 //
 
 import Cocoa
-import IOKit.pwr_mgt
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-    var statusItem = NSStatusBar.system().statusItem(withLength: -2.0)
-    var keepingAwake = false
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+    let statusItem = NSStatusBar.system().statusItem(withLength: -2.0)
+    let sleepController = SleepController()
 
-    var assertionID1 : IOPMAssertionID = IOPMAssertionID(0)
-    var assertionID2 : IOPMAssertionID = IOPMAssertionID(0)
-    var success1: IOReturn?
-    var success2: IOReturn?
-
+    @IBOutlet weak var siMenu: NSMenu!
+    @IBOutlet weak var preventSleepMenuItem: NSMenuItem!
+    
+    // MARK: - Applicaiton life cycle
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let siButton = statusItem.button {
             if let image = NSImage(named: "StatusItem") {
                 siButton.image = image
-                siButton.target = self
-                siButton.action = #selector(AppDelegate.handleClick)
             }
         }
+        siMenu.delegate = self
+        statusItem.menu = siMenu
+        
+        print(statusItem.behavior)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-    
-    func handleClick() {
-        let imageName = (keepingAwake) ? "StatusItem" : "StatusItemAlternate"
+
+    // MARK: - NSMenuDelegate conformance
+
+    func menuWillOpen(_ menu: NSMenu) {
+        updateIcon(imageName: "StatusItem")
+    }
+
+    func menuDidClose(_ menu: NSMenu) {
+        var imageName = "StatusItem"
+        
+        // The menu closes before the target's action is fired,
+        // so if we're about to switch away from .allowSleep then we want the alternate icon image
+        switch sleepController.sleepState {
+        case .allowSleep:
+            imageName = "StatusItemAlternate"
+        case .preventSleepIndefinitely:
+            imageName = "StatusItem"
+        }
+        updateIcon(imageName: imageName)
+    }
+
+    private func updateIcon(imageName: String) {
         if let siButton = statusItem.button {
             if let image = NSImage(named: imageName) {
                 siButton.image = image
-                toggleKeepAwake();
             }
         }
     }
     
-    func toggleKeepAwake() {
-        let reasonForActivity = "Describe Activity Type" as CFString
-        if (keepingAwake) {
-            if success1 == kIOReturnSuccess {
-                IOPMAssertionRelease(assertionID1)
-            }
-            if success2 == kIOReturnSuccess {
-                IOPMAssertionRelease(assertionID2)
-            }
+    // MARK: - StatusItem action
+
+    @IBAction func preventSleepIndefinitely(_ sender: NSMenuItem) {
+        let preventSystemSleepTitle =
+            NSLocalizedString("Prevent System Sleep",
+                              comment: "Menu item title used to prevent system from activating sleep")
+        let allowSystemSleepTitle =
+            NSLocalizedString("Allow System Sleep",
+                              comment: "Menu item title used to allow system to activate sleep")
+        var desiredState = SleepState.allowSleep
+        
+        // Toggle between .allowSleep and .preventSleepIndefinitely
+        switch sleepController.sleepState {
+        case .allowSleep:
+            desiredState = .preventSleepIndefinitely
+            preventSleepMenuItem.title = allowSystemSleepTitle
+        case .preventSleepIndefinitely:
+            desiredState = .allowSleep
+            preventSleepMenuItem.title = preventSystemSleepTitle
         }
-        else {
-            success1 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!,
-                                                   IOPMAssertionLevel(kIOPMAssertionLevelOn),
-                                                   reasonForActivity, &assertionID1)
-            success2 = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!,
-                                                   IOPMAssertionLevel(kIOPMAssertionLevelOn),
-                                                   reasonForActivity, &assertionID2)
-        }
-        keepingAwake = !keepingAwake
+        
+        sleepController.updateSleepState(state: desiredState)
     }
 }
