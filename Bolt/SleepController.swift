@@ -14,7 +14,7 @@ enum SleepState {
     case preventSleepIndefinitely
 }
 
-struct SleepModel {
+fileprivate struct SleepModel {
     var assertionID: IOPMAssertionID = IOPMAssertionID(0)
     var success: IOReturn?
 }

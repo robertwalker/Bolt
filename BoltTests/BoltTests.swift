@@ -8,6 +8,7 @@
 
 import Cocoa
 import XCTest
+@testable import Bolt
 
 class BoltTests: XCTestCase {
     
@@ -21,16 +22,25 @@ class BoltTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testKeepAwake() {
+        let sleepController = SleepController()
+        sleepController.updateSleepState(state: .preventSleepIndefinitely)
+        XCTAssertEqual(sleepController.sleepState, .preventSleepIndefinitely)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+
+    func testAllowSleep() {
+        let sleepController = SleepController()
+        sleepController.updateSleepState(state: .allowSleep)
+        XCTAssertEqual(sleepController.sleepState, .allowSleep)
+    }
+
+    func testPerformanceKeepAwake() {
         self.measure() {
-            // Put the code you want to measure the time of here.
+            let sleepController = SleepController()
+            sleepController.updateSleepState(state: .preventSleepIndefinitely)
+            XCTAssertEqual(sleepController.sleepState, .preventSleepIndefinitely)
+            sleepController.updateSleepState(state: .allowSleep)
+            XCTAssertEqual(sleepController.sleepState, .allowSleep)
         }
     }
-    
 }
