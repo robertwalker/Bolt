@@ -10,7 +10,7 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
-    let statusItem = NSStatusBar.system().statusItem(withLength: -2.0)
+    let statusItem = NSStatusBar.system.statusItem(withLength: -2.0)
     let sleepController = SleepController()
     
     // MARK: - Localized Strings
@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let siButton = statusItem.button {
-            if let image = NSImage(named: "StatusItem") {
+            if let image = NSImage(named: NSImage.Name(rawValue: "StatusItem")) {
                 siButton.image = image
             }
         }
@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     private func updateIcon(imageName: String) {
         if let siButton = statusItem.button {
-            if let image = NSImage(named: imageName) {
+            if let image = NSImage(named: NSImage.Name(rawValue: imageName)) {
                 siButton.image = image
             }
         }
