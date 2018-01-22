@@ -24,33 +24,51 @@ class SleepController {
     private var displaySleep = SleepModel()
     private var systemSleep = SleepModel()
 
-    func updateSleepState(state newState: SleepState) {
+    fileprivate func preventSleep(_ newState: SleepState) {
         let reasonForActivity = "Bolt Controls System Sleep" as CFString
         
-        switch sleepState {
-        case .allowSleep:
-            // Prevent display sleep
+        func preventDisplaySleep() {
             displaySleep.success =
                 IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!,
                                             IOPMAssertionLevel(kIOPMAssertionLevelOn),
                                             reasonForActivity, &displaySleep.assertionID)
-            
-            // Prevent system sleep
+        }
+        
+        func preventSystemSleep() {
             systemSleep.success =
                 IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!,
                                             IOPMAssertionLevel(kIOPMAssertionLevelOn),
                                             reasonForActivity, &systemSleep.assertionID)
-            
-            // Update current state
-            sleepState = newState
-        case .preventSleepIndefinitely:
+        }
+        
+        preventDisplaySleep()
+        preventSystemSleep()
+    }
+    
+    fileprivate func allowSleep(_ newState: SleepState) {
+        func allowDisplaySleep() {
             if displaySleep.success == kIOReturnSuccess {
                 IOPMAssertionRelease(displaySleep.assertionID)
             }
+        }
+        
+        func allowSystemSleep() {
             if systemSleep.success == kIOReturnSuccess {
                 IOPMAssertionRelease(systemSleep.assertionID)
             }
-            sleepState = newState
         }
+        
+        allowDisplaySleep()
+        allowSystemSleep()
+    }
+    
+    func updateSleepState(to newState: SleepState) {
+        switch sleepState {
+        case .allowSleep:
+            preventSleep(newState)
+        case .preventSleepIndefinitely:
+            allowSleep(newState)
+        }
+        sleepState = newState
     }
 }

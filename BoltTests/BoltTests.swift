@@ -24,22 +24,22 @@ class BoltTests: XCTestCase {
     
     func testKeepAwake() {
         let sleepController = SleepController()
-        sleepController.updateSleepState(state: .preventSleepIndefinitely)
+        sleepController.updateSleepState(to: .preventSleepIndefinitely)
         XCTAssertEqual(sleepController.sleepState, .preventSleepIndefinitely)
     }
 
     func testAllowSleep() {
         let sleepController = SleepController()
-        sleepController.updateSleepState(state: .allowSleep)
+        sleepController.updateSleepState(to: .allowSleep)
         XCTAssertEqual(sleepController.sleepState, .allowSleep)
     }
 
     func testPerformanceKeepAwake() {
         self.measure() {
             let sleepController = SleepController()
-            sleepController.updateSleepState(state: .preventSleepIndefinitely)
+            sleepController.updateSleepState(to: .preventSleepIndefinitely)
             XCTAssertEqual(sleepController.sleepState, .preventSleepIndefinitely)
-            sleepController.updateSleepState(state: .allowSleep)
+            sleepController.updateSleepState(to: .allowSleep)
             XCTAssertEqual(sleepController.sleepState, .allowSleep)
         }
     }

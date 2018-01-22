@@ -83,6 +83,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             updateIcon(imageName: "StatusItem")
         }
         
-        sleepController.updateSleepState(state: desiredState)
+        sleepController.updateSleepState(to: desiredState)
     }
 }
