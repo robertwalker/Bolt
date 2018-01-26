@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let allowSystemSleepTitle =
         NSLocalizedString("Allow System Sleep",
                           comment: "Menu item title used to allow system to activate sleep")
- 
+    
     // MARK: - Outlets
     
     @IBOutlet weak var siMenu: NSMenu!
@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     // MARK: - NSMenuDelegate
-
+    
     func menuWillOpen(_ menu: NSMenu) {
         updateIcon(imageName: "StatusItem")
     }

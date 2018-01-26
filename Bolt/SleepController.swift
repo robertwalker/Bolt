@@ -23,7 +23,7 @@ class SleepController {
     var sleepState = SleepState.allowSleep
     private var displaySleep = SleepModel()
     private var systemSleep = SleepModel()
-
+    
     fileprivate func preventSleep(_ newState: SleepState) {
         let reasonForActivity = "Bolt Controls System Sleep" as CFString
         
