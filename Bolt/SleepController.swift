@@ -23,34 +23,44 @@ class SleepController {
     var sleepState = SleepState.allowSleep
     private var displaySleep = SleepModel()
     private var systemSleep = SleepModel()
-
-    func updateSleepState(state newState: SleepState) {
+    
+    func allowSleep() {
+        func allowDisplaySleep() {
+            if displaySleep.success == kIOReturnSuccess {
+                IOPMAssertionRelease(displaySleep.assertionID)
+            }
+        }
+        
+        func allowSystemSleep() {
+            if systemSleep.success == kIOReturnSuccess {
+                IOPMAssertionRelease(systemSleep.assertionID)
+            }
+        }
+        
+        allowDisplaySleep()
+        allowSystemSleep()
+        sleepState = .allowSleep
+    }
+    
+    func preventSleep() {
         let reasonForActivity = "Bolt Controls System Sleep" as CFString
         
-        switch sleepState {
-        case .allowSleep:
-            // Prevent display sleep
+        func preventDisplaySleep() {
             displaySleep.success =
                 IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!,
                                             IOPMAssertionLevel(kIOPMAssertionLevelOn),
                                             reasonForActivity, &displaySleep.assertionID)
-            
-            // Prevent system sleep
+        }
+        
+        func preventSystemSleep() {
             systemSleep.success =
                 IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!,
                                             IOPMAssertionLevel(kIOPMAssertionLevelOn),
                                             reasonForActivity, &systemSleep.assertionID)
-            
-            // Update current state
-            sleepState = newState
-        case .preventSleepIndefinitely:
-            if displaySleep.success == kIOReturnSuccess {
-                IOPMAssertionRelease(displaySleep.assertionID)
-            }
-            if systemSleep.success == kIOReturnSuccess {
-                IOPMAssertionRelease(systemSleep.assertionID)
-            }
-            sleepState = newState
         }
+        
+        preventDisplaySleep()
+        preventSystemSleep()
+        sleepState = .preventSleepIndefinitely
     }
 }
