@@ -10,7 +10,9 @@
 		B6785E731B63564F000DA7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6785E721B63564F000DA7D8 /* AppDelegate.swift */; };
 		B6785E771B63564F000DA7D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6785E761B63564F000DA7D8 /* Images.xcassets */; };
 		B6785E7A1B63564F000DA7D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6785E781B63564F000DA7D8 /* Main.storyboard */; };
+		B6AD7C8D201BE0EE002AB2CD /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD7C8C201BE0EE002AB2CD /* StatusItemController.swift */; };
 		B6AD7C8F201BE1A2002AB2CD /* SleepControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD7C8E201BE1A2002AB2CD /* SleepControllerTests.swift */; };
+		B6ED5568201BFEF6009F88F9 /* StatusItemControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED5567201BFEF6009F88F9 /* StatusItemControllerTests.swift */; };
 		B6FF775B1F0EC74B00DD722B /* SleepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FF775A1F0EC74B00DD722B /* SleepController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +34,9 @@
 		B6785E791B63564F000DA7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6785E7F1B63564F000DA7D8 /* BoltTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6785E841B63564F000DA7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6AD7C8C201BE0EE002AB2CD /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		B6AD7C8E201BE1A2002AB2CD /* SleepControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepControllerTests.swift; sourceTree = "<group>"; };
+		B6ED5567201BFEF6009F88F9 /* StatusItemControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemControllerTests.swift; sourceTree = "<group>"; };
 		B6FF775A1F0EC74B00DD722B /* SleepController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				B6785E721B63564F000DA7D8 /* AppDelegate.swift */,
+				B6AD7C8C201BE0EE002AB2CD /* StatusItemController.swift */,
 				B6FF775A1F0EC74B00DD722B /* SleepController.swift */,
 				B6785E761B63564F000DA7D8 /* Images.xcassets */,
 				B6785E781B63564F000DA7D8 /* Main.storyboard */,
@@ -95,6 +100,7 @@
 		B6785E821B63564F000DA7D8 /* BoltTests */ = {
 			isa = PBXGroup;
 			children = (
+				B6ED5567201BFEF6009F88F9 /* StatusItemControllerTests.swift */,
 				B6AD7C8E201BE1A2002AB2CD /* SleepControllerTests.swift */,
 				B6785E831B63564F000DA7D8 /* Supporting Files */,
 			);
@@ -215,6 +221,7 @@
 			files = (
 				B6FF775B1F0EC74B00DD722B /* SleepController.swift in Sources */,
 				B6785E731B63564F000DA7D8 /* AppDelegate.swift in Sources */,
+				B6AD7C8D201BE0EE002AB2CD /* StatusItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6ED5568201BFEF6009F88F9 /* StatusItemControllerTests.swift in Sources */,
 				B6AD7C8F201BE1A2002AB2CD /* SleepControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,25 @@ class SleepController {
     private var displaySleep = SleepModel()
     private var systemSleep = SleepModel()
     
-    fileprivate func preventSleep(_ newState: SleepState) {
+    func allowSleep() {
+        func allowDisplaySleep() {
+            if displaySleep.success == kIOReturnSuccess {
+                IOPMAssertionRelease(displaySleep.assertionID)
+            }
+        }
+        
+        func allowSystemSleep() {
+            if systemSleep.success == kIOReturnSuccess {
+                IOPMAssertionRelease(systemSleep.assertionID)
+            }
+        }
+        
+        allowDisplaySleep()
+        allowSystemSleep()
+        sleepState = .allowSleep
+    }
+    
+    func preventSleep() {
         let reasonForActivity = "Bolt Controls System Sleep" as CFString
         
         func preventDisplaySleep() {
@@ -43,32 +61,6 @@ class SleepController {
         
         preventDisplaySleep()
         preventSystemSleep()
-    }
-    
-    fileprivate func allowSleep(_ newState: SleepState) {
-        func allowDisplaySleep() {
-            if displaySleep.success == kIOReturnSuccess {
-                IOPMAssertionRelease(displaySleep.assertionID)
-            }
-        }
-        
-        func allowSystemSleep() {
-            if systemSleep.success == kIOReturnSuccess {
-                IOPMAssertionRelease(systemSleep.assertionID)
-            }
-        }
-        
-        allowDisplaySleep()
-        allowSystemSleep()
-    }
-    
-    func updateSleepState(to newState: SleepState) {
-        switch sleepState {
-        case .allowSleep:
-            preventSleep(newState)
-        case .preventSleepIndefinitely:
-            allowSleep(newState)
-        }
-        sleepState = newState
+        sleepState = .preventSleepIndefinitely
     }
 }

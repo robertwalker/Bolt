@@ -13,22 +13,22 @@ import XCTest
 class SleepControllerTests: XCTestCase {
     func testKeepAwake() {
         let sleepController = SleepController()
-        sleepController.updateSleepState(to: .preventSleepIndefinitely)
+        sleepController.preventSleep()
         XCTAssertEqual(sleepController.sleepState, .preventSleepIndefinitely)
     }
     
     func testAllowSleep() {
         let sleepController = SleepController()
-        sleepController.updateSleepState(to: .allowSleep)
+        sleepController.allowSleep()
         XCTAssertEqual(sleepController.sleepState, .allowSleep)
     }
     
     func testPerformanceKeepAwake() {
         self.measure() {
             let sleepController = SleepController()
-            sleepController.updateSleepState(to: .preventSleepIndefinitely)
+            sleepController.preventSleep()
             XCTAssertEqual(sleepController.sleepState, .preventSleepIndefinitely)
-            sleepController.updateSleepState(to: .allowSleep)
+            sleepController.allowSleep()
             XCTAssertEqual(sleepController.sleepState, .allowSleep)
         }
     }
