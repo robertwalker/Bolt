@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class StatusItemController: NSObject, NSMenuDelegate {
+class StatusItemController: NSObject {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let sleepController = SleepController()
     
@@ -60,9 +60,11 @@ class StatusItemController: NSObject, NSMenuDelegate {
             sleepController.allowSleep()
         }
     }
-    
-    // MARK: - NSMenuDelegate
-    
+}
+
+// MARK: - NSMenuDelegate
+
+extension StatusItemController: NSMenuDelegate {
     func menuWillOpen(_ menu: NSMenu) {
         updateIcon(imageName: "StatusItem")
     }
