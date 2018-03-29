@@ -47,14 +47,14 @@ class SleepController {
         
         func preventDisplaySleep() {
             displaySleep.success =
-                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!,
+                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString?,
                                             IOPMAssertionLevel(kIOPMAssertionLevelOn),
                                             reasonForActivity, &displaySleep.assertionID)
         }
         
         func preventSystemSleep() {
             systemSleep.success =
-                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!,
+                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString?,
                                             IOPMAssertionLevel(kIOPMAssertionLevelOn),
                                             reasonForActivity, &systemSleep.assertionID)
         }
