@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -98,10 +98,11 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Bolt" customModuleProvider="target">
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Bolt" customModuleProvider="target"/>
+                <customObject id="ciu-Tj-wVd" customClass="StatusItemController" customModule="Bolt" customModuleProvider="target">
                     <connections>
-                        <outlet property="preventSleepMenuItem" destination="txy-D5-IOZ" id="6rX-BX-V75"/>
-                        <outlet property="siMenu" destination="Ua3-aj-HoP" id="yWN-X4-Q40"/>
+                        <outlet property="preventSleepMenuItem" destination="txy-D5-IOZ" id="c3D-XI-Mvb"/>
+                        <outlet property="siMenu" destination="Ua3-aj-HoP" id="zeu-p6-DtQ"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -110,7 +111,7 @@
                         <menuItem title="Prevent System Sleep" id="txy-D5-IOZ">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="preventSleepIndefinitely:" target="Voe-Tx-rLC" id="zrX-7t-tT1"/>
+                                <action selector="preventSleepIndefinitely:" target="ciu-Tj-wVd" id="dYc-64-hfQ"/>
                             </connections>
                         </menuItem>
                     </items>

@@ -5,6 +5,8 @@
 //  Created by Robert Walker on 7/6/17.
 //  Copyright © 2017 Robert Walker. All rights reserved.
 //
+//  This class wraps the legacy IOKit power management C code with a convenient Swift API.
+//
 
 import Cocoa
 import IOKit.pwr_mgt
@@ -23,34 +25,44 @@ class SleepController {
     var sleepState = SleepState.allowSleep
     private var displaySleep = SleepModel()
     private var systemSleep = SleepModel()
-
-    func updateSleepState(state newState: SleepState) {
-        let reasonForActivity = "Bolt Controls System Sleep" as CFString
-        
-        switch sleepState {
-        case .allowSleep:
-            // Prevent display sleep
-            displaySleep.success =
-                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString!,
-                                            IOPMAssertionLevel(kIOPMAssertionLevelOn),
-                                            reasonForActivity, &displaySleep.assertionID)
-            
-            // Prevent system sleep
-            systemSleep.success =
-                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString!,
-                                            IOPMAssertionLevel(kIOPMAssertionLevelOn),
-                                            reasonForActivity, &systemSleep.assertionID)
-            
-            // Update current state
-            sleepState = newState
-        case .preventSleepIndefinitely:
+    
+    func allowSleep() {
+        func allowDisplaySleep() {
             if displaySleep.success == kIOReturnSuccess {
                 IOPMAssertionRelease(displaySleep.assertionID)
             }
+        }
+        
+        func allowSystemSleep() {
             if systemSleep.success == kIOReturnSuccess {
                 IOPMAssertionRelease(systemSleep.assertionID)
             }
-            sleepState = newState
         }
+        
+        allowDisplaySleep()
+        allowSystemSleep()
+        sleepState = .allowSleep
+    }
+    
+    func preventSleep() {
+        let reasonForActivity = "Bolt Controls System Sleep" as CFString
+        
+        func preventDisplaySleep() {
+            displaySleep.success =
+                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString?,
+                                            IOPMAssertionLevel(kIOPMAssertionLevelOn),
+                                            reasonForActivity, &displaySleep.assertionID)
+        }
+        
+        func preventSystemSleep() {
+            systemSleep.success =
+                IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep as CFString?,
+                                            IOPMAssertionLevel(kIOPMAssertionLevelOn),
+                                            reasonForActivity, &systemSleep.assertionID)
+        }
+        
+        preventDisplaySleep()
+        preventSystemSleep()
+        sleepState = .preventSleepIndefinitely
     }
 }

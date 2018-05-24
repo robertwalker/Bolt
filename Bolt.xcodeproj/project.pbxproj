@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B606234A20236C0D0060B961 /* BoltUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606234920236C0D0060B961 /* BoltUITests.swift */; };
 		B6785E731B63564F000DA7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6785E721B63564F000DA7D8 /* AppDelegate.swift */; };
 		B6785E771B63564F000DA7D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6785E761B63564F000DA7D8 /* Images.xcassets */; };
 		B6785E7A1B63564F000DA7D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6785E781B63564F000DA7D8 /* Main.storyboard */; };
-		B6785E861B63564F000DA7D8 /* BoltTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6785E851B63564F000DA7D8 /* BoltTests.swift */; };
+		B6AD7C8D201BE0EE002AB2CD /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD7C8C201BE0EE002AB2CD /* StatusItemController.swift */; };
+		B6AD7C8F201BE1A2002AB2CD /* SleepControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD7C8E201BE1A2002AB2CD /* SleepControllerTests.swift */; };
+		B6ED5568201BFEF6009F88F9 /* StatusItemControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED5567201BFEF6009F88F9 /* StatusItemControllerTests.swift */; };
 		B6FF775B1F0EC74B00DD722B /* SleepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FF775A1F0EC74B00DD722B /* SleepController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B606234C20236C0D0060B961 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6785E651B63564F000DA7D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6785E6C1B63564F000DA7D8;
+			remoteInfo = Bolt;
+		};
 		B6785E801B63564F000DA7D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B6785E651B63564F000DA7D8 /* Project object */;
@@ -25,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B606234720236C0D0060B961 /* BoltUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoltUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B606234920236C0D0060B961 /* BoltUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoltUITests.swift; sourceTree = "<group>"; };
+		B606234B20236C0D0060B961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6785E6D1B63564F000DA7D8 /* Bolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6785E711B63564F000DA7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6785E721B63564F000DA7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,11 +45,20 @@
 		B6785E791B63564F000DA7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6785E7F1B63564F000DA7D8 /* BoltTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6785E841B63564F000DA7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6785E851B63564F000DA7D8 /* BoltTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoltTests.swift; sourceTree = "<group>"; };
+		B6AD7C8C201BE0EE002AB2CD /* StatusItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		B6AD7C8E201BE1A2002AB2CD /* SleepControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepControllerTests.swift; sourceTree = "<group>"; };
+		B6ED5567201BFEF6009F88F9 /* StatusItemControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemControllerTests.swift; sourceTree = "<group>"; };
 		B6FF775A1F0EC74B00DD722B /* SleepController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B606234420236C0D0060B961 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6785E6A1B63564F000DA7D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,11 +76,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B606234820236C0D0060B961 /* BoltUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B606234920236C0D0060B961 /* BoltUITests.swift */,
+				B606234B20236C0D0060B961 /* Info.plist */,
+			);
+			path = BoltUITests;
+			sourceTree = "<group>";
+		};
+		B66A4C0120B676FE00B5FF8C /* Legacy Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				B6FF775A1F0EC74B00DD722B /* SleepController.swift */,
+			);
+			name = "Legacy Wrappers";
+			sourceTree = "<group>";
+		};
+		B66A4C0220B677E600B5FF8C /* Legacy Wrapper Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B6AD7C8E201BE1A2002AB2CD /* SleepControllerTests.swift */,
+			);
+			name = "Legacy Wrapper Tests";
+			sourceTree = "<group>";
+		};
 		B6785E641B63564F000DA7D8 = {
 			isa = PBXGroup;
 			children = (
 				B6785E6F1B63564F000DA7D8 /* Bolt */,
 				B6785E821B63564F000DA7D8 /* BoltTests */,
+				B606234820236C0D0060B961 /* BoltUITests */,
 				B6785E6E1B63564F000DA7D8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +116,7 @@
 			children = (
 				B6785E6D1B63564F000DA7D8 /* Bolt.app */,
 				B6785E7F1B63564F000DA7D8 /* BoltTests.xctest */,
+				B606234720236C0D0060B961 /* BoltUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,7 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				B6785E721B63564F000DA7D8 /* AppDelegate.swift */,
-				B6FF775A1F0EC74B00DD722B /* SleepController.swift */,
+				B6AD7C8C201BE0EE002AB2CD /* StatusItemController.swift */,
+				B66A4C0120B676FE00B5FF8C /* Legacy Wrappers */,
 				B6785E761B63564F000DA7D8 /* Images.xcassets */,
 				B6785E781B63564F000DA7D8 /* Main.storyboard */,
 				B6785E701B63564F000DA7D8 /* Supporting Files */,
@@ -95,7 +145,8 @@
 		B6785E821B63564F000DA7D8 /* BoltTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6785E851B63564F000DA7D8 /* BoltTests.swift */,
+				B6ED5567201BFEF6009F88F9 /* StatusItemControllerTests.swift */,
+				B66A4C0220B677E600B5FF8C /* Legacy Wrapper Tests */,
 				B6785E831B63564F000DA7D8 /* Supporting Files */,
 			);
 			path = BoltTests;
@@ -112,6 +163,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B606234620236C0D0060B961 /* BoltUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B606235020236C0D0060B961 /* Build configuration list for PBXNativeTarget "BoltUITests" */;
+			buildPhases = (
+				B606234320236C0D0060B961 /* Sources */,
+				B606234420236C0D0060B961 /* Frameworks */,
+				B606234520236C0D0060B961 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B606234D20236C0D0060B961 /* PBXTargetDependency */,
+			);
+			name = BoltUITests;
+			productName = BoltUITests;
+			productReference = B606234720236C0D0060B961 /* BoltUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B6785E6C1B63564F000DA7D8 /* Bolt */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6785E891B63564F000DA7D8 /* Build configuration list for PBXNativeTarget "Bolt" */;
@@ -154,10 +223,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0720;
-				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Robert Walker";
 				TargetAttributes = {
+					B606234620236C0D0060B961 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = PATRVL3XV9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B6785E6C1B63564F000DA7D8;
+					};
 					B6785E6C1B63564F000DA7D8 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = PATRVL3XV9;
@@ -185,11 +260,19 @@
 			targets = (
 				B6785E6C1B63564F000DA7D8 /* Bolt */,
 				B6785E7E1B63564F000DA7D8 /* BoltTests */,
+				B606234620236C0D0060B961 /* BoltUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B606234520236C0D0060B961 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6785E6B1B63564F000DA7D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,12 +292,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B606234320236C0D0060B961 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B606234A20236C0D0060B961 /* BoltUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6785E691B63564F000DA7D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B6FF775B1F0EC74B00DD722B /* SleepController.swift in Sources */,
 				B6785E731B63564F000DA7D8 /* AppDelegate.swift in Sources */,
+				B6AD7C8D201BE0EE002AB2CD /* StatusItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,13 +314,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6785E861B63564F000DA7D8 /* BoltTests.swift in Sources */,
+				B6ED5568201BFEF6009F88F9 /* StatusItemControllerTests.swift in Sources */,
+				B6AD7C8F201BE1A2002AB2CD /* SleepControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B606234D20236C0D0060B961 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6785E6C1B63564F000DA7D8 /* Bolt */;
+			targetProxy = B606234C20236C0D0060B961 /* PBXContainerItemProxy */;
+		};
 		B6785E811B63564F000DA7D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B6785E6C1B63564F000DA7D8 /* Bolt */;
@@ -248,6 +346,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B606234E20236C0D0060B961 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PATRVL3XV9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BoltUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertwalker.BoltUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Bolt;
+			};
+			name = Debug;
+		};
+		B606234F20236C0D0060B961 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PATRVL3XV9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BoltUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertwalker.BoltUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Bolt;
+			};
+			name = Release;
+		};
 		B6785E871B63564F000DA7D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -260,12 +405,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -293,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -313,12 +460,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -339,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -423,6 +572,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B606235020236C0D0060B961 /* Build configuration list for PBXNativeTarget "BoltUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B606234E20236C0D0060B961 /* Debug */,
+				B606234F20236C0D0060B961 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B6785E681B63564F000DA7D8 /* Build configuration list for PBXProject "Bolt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
