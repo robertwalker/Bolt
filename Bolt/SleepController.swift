@@ -5,6 +5,8 @@
 //  Created by Robert Walker on 7/6/17.
 //  Copyright © 2017 Robert Walker. All rights reserved.
 //
+//  This class wraps the legacy IOKit power management C code with a convenient Swift API.
+//
 
 import Cocoa
 import IOKit.pwr_mgt
