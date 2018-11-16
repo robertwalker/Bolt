@@ -24,7 +24,7 @@ class StatusItemController: NSObject {
     // MARK: - Private functions
     
     private func updateIcon(imageName: String) {
-        if let siButton = statusItem.button, let image = NSImage(named: NSImage.Name(rawValue: imageName)) {
+        if let siButton = statusItem.button, let image = NSImage(named: imageName) {
             siButton.image = image
         }
     }
@@ -33,7 +33,7 @@ class StatusItemController: NSObject {
     
     override func awakeFromNib() {
         let siButton = statusItem.button!
-        if let image = NSImage(named: NSImage.Name(rawValue: "StatusItem")) {
+        if let image = NSImage(named: "StatusItem") {
             siButton.image = image
         }
         
