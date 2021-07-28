@@ -60,6 +60,10 @@ class StatusItemController: NSObject {
             sleepController.allowSleep()
         }
     }
+    
+    @IBAction func quitBolt(_ sender: NSMenuItem) {
+        NSApplication.shared.terminate(self)
+    }
 }
 
 // MARK: - NSMenuDelegate
